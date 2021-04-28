@@ -28,7 +28,7 @@ const addExclamation = (arr) => {
   // Solution code here...
   let array = [];
 
-  arr.forEach(element => array.push( element +='!'));
+  arr.forEach(element => array.push(element += '!'));
   return array;
 };
 
@@ -45,7 +45,7 @@ const allUpperCase = (arr) => {
   // Solution code here...
   let array = [];
 
-  arr.forEach(element => array.push( element.toUpperCase() ));
+  arr.forEach(element => array.push(element.toUpperCase()));
   return array;
 };
 
@@ -66,7 +66,7 @@ const greeting = (word) => {
 
 const speaker = (words, callback) => {
   // Solution code here...
-  const array=[];
+  const array = [];
   words.forEach(element => array.push(callback(element)));
   return array;
 };
@@ -96,9 +96,11 @@ const addValues = (arr, value) => {
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
 
-  num.forEach(element => arr.push(element));
-  return array;
-
+  for (let i = 0; i < times; i++) {
+    // arr = arr[i] + num[i];
+    callback(arr,num); // what is that? - should ask sally
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,7 +111,7 @@ Write a function named createList that takes in an array of the current store in
 
 The inventory is formatted like this:
 [
-  { name: 'apples', available: true },
+  { name: 'apples', : true },
   { name: 'pears', available: true },
   { name: 'oranges', available: false },
   { name: 'bananas', available: true },
@@ -121,6 +123,14 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  let array =[];
+
+  availableItems.forEach(e =>{
+    if (e.available === true) {
+      array.push(`${e.name}`);
+    }
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -137,9 +147,12 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
-const fizzbuzz = (arr) => {
-  // Solution code here...
-};
+// const fizzbuzz = (arr) => {
+//   // Solution code here...
+//   inputs.forEach(element => {
+    
+//   });
+// };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
