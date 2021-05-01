@@ -147,12 +147,10 @@ Iterate over the array using forEach to determine the output based on several ru
 Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
-// const fizzbuzz = (arr) => {
-//   // Solution code here...
-//   inputs.forEach(element => {
-    
-//   });
-// };
+const fizzbuzz = (arr) => {
+  // Solution code here...
+  
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
