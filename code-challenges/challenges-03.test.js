@@ -40,11 +40,20 @@ Write a function named containsAnd that, given an array of strings as input,
 For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
+// const containsAnd = (arr) => {
+//   // Solution code here... need restady
+//   // let a = arr.filter(world => { return !(world === 'ran' || world === 'banana' || world === 'bob' || world === 'xyz'); });
+//   // return a;
+
+// };
+
 const containsAnd = (arr) => {
-  // Solution code here... need restady
-  let a = arr.filter(world => { return !(world === 'ran' || world === 'banana' || world === 'bob' || world === 'xyz'); });
-  return a;
+  let events = arr.filter(currentValue => {
+    return (currentValue.includes('and'));
+  });
+  return events;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
