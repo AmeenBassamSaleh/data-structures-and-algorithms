@@ -44,13 +44,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 const count = (target, input) => {
   // Solution code here...
   let count = 0;
-  // let filter = input.m
-  // let filterFun =
-  input.filter(num => {
-    if (num === target) {
-      count++;
-    }
+  input.map(i => {
+    return i.filter(num => {
+      if (num === target) {
+        count++;
+      }
+    });
   });
+  // let filterFun =
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,6 +67,16 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  let count = 0;
+  input.map(i => {
+    return i.filter(num => {
+      // if (num === target) {
+      count = num + count;
+      // }
+    });
+  });
+  // let filterFun =
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,10 +93,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  return input.map(i => i.filter(w =>
+    (typeof w === 'number') && (w % 5 === 0)).map(s => Math.pow(2, s)) // need stydy
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
+CHALLENGE 5
 
 Write a function named findMaleAndFemale that, given the Star Wars data, below,
 returns the names of the characters whose gender is either male or female.
@@ -145,18 +160,39 @@ let starWarsData = [{
   gender: 'female'
 }];
 
+
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  let array = [];
+  let nam ='';
+  data.map(i => {
+    nam = i.name;
+    if ((i.gender === 'male') || (i.gender === 'female')) {
+      array.push(nam);
+    }
+  });
+  return array.join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
+CHALLENGE 6
 
-Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
+Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter,
+ map and reduce to return the name of the shortest character.
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
   // Solution code here...
+  let c = data.sort((a,b) =>{
+    if (a.height>b.height) {
+      return -1;
+    }
+    if (a.height<b.height) {
+      return 1;
+    }
+    return 0;
+  });
+  return c[0].name;
 };
 
 /* ------------------------------------------------------------------------------------------------
