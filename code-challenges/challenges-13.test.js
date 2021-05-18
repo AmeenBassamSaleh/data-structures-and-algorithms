@@ -8,44 +8,43 @@ Write a function named longestString that takes
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-// Solution code here...
+  // Solution code here...
+  let any = arr.reduce((a, b) => a.length < b.length ? a = b : a, '');
+  return arr.indexOf(any);
 };
-  
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named firstLetters that takes in an array of strings and returns an array containing only the first letter of each string.
+Write a function named firstLetters that takes in an array of strings and returns
+an array containing only the first letter of each string.
 
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 'w', 'w', ':']
 ------------------------------------------------------------------------------------------------ */
 
-const firstLetters = (arr) => {
-  // Solution code here...
-};
+const firstLetters = (arr) => (arr.map(i => i.charAt(0))); // why () not []
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named findHappiness that takes in an array of strings and returns an array containing only the strings from the input array that contain ":)".
+Write a function named findHappiness that takes in an array of strings and returns an array
+ containing only the strings from the input array that contain ":)".
 
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
 ------------------------------------------------------------------------------------------------ */
 
-const findHappiness = (arr) => {
-  // Solution code here...
-};
+const findHappiness = (arr) => (arr.filter(i => i.includes(':)')));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named standardizePhoneNumbers that takes in an array of phone number strings in (XXX) XXX-XXXX format and returns an array with the phone number strings in XXXXXXXXXX format.
+Write a function named standardizePhoneNumbers that takes in an array of phone number strings in
+ (XXX) XXX-XXXX format and returns an array with the phone number strings in XXXXXXXXXX format.
 
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
-};
+const standardizePhoneNumbers = (arr) => arr.map(i => i.substring(1, 4)+i.substring(6, 9)+i.substring(10, 14));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 
@@ -57,6 +56,8 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  let a = str.split('').filter((i, a) => a % 2 !== 0).join('');
+  return a; // need study
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,6 +68,8 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  let a = ((arr.filter(a => !(a.includes(':)'))).length > 0) ? false : true);
+  return a; // need study
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,9 +160,9 @@ Run your tests from the console: jest challenges-13.test.js
 
 describe('Testing challenge 1', () => {
   test('It should return an index position of the longest string', () => {
-    const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
+    const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki'];
     const strArray2 = [];
-    const strArray3= ['Ginger']
+    const strArray3 = ['Ginger'];
 
     expect(longestString(strArray1)).toStrictEqual(2);
     expect(longestString(strArray2)).toStrictEqual(-1);
