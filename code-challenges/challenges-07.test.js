@@ -27,11 +27,11 @@ let starWarsPeople = [
 
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
-  starWarsArr.sort((a,b)=>{
-    if (Number(a.height)<Number(b.height)){
+  starWarsArr.sort((a, b) => {
+    if (Number(a.height) < Number(b.height)) {
       return 1;
     }
-    if(a.height> b.height){
+    if (a.height > b.height) {
       return -1;
     }
   });
@@ -47,7 +47,7 @@ Write a function named removeThree that takes an index and an array.
 
 const removeThree = (idx, arr) => {
   // Solution code here...
-  arr.splice(idx,3);
+  arr.splice(idx, 3);
   return arr;
 };
 
@@ -80,28 +80,36 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  for (let i = 0; i <= str.length; i++) {
+    let a = str.slice(i, str.length);
+    result.push(a);
+  }
   return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function name wordsToCharList that, given a string as input, returns a new array where every element is a character of the input string.
+Write a function name wordsToCharList that,
+ given a string as input, returns a new array where every element is a character of the input string.
 
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return arr.split('');
 };
 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-You are making a grocery list for ingredients needed in the gruffalo crumble recipe, below. Rather than taking the entire recipe, you only want a list of the item names.
+You are making a grocery list for ingredients needed in the gruffalo crumble recipe, below.
+ Rather than taking the entire recipe, you only want a list of the item names.
 
-Write a function named listFoods that takes in the recipe and returns a new array of the food items without any amount or units. Just the name. For example, '1 cup flour' will return 'flour'.
+Write a function named listFoods that takes in the recipe and returns a new array of the food items without any amount or units.
+ Just the name. For example, '1 cup flour' will return 'flour'.
 
 Use slice for this function, maybe more than once. The Array.indexOf() method may also be helpful.
 
@@ -140,7 +148,8 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  return result;
+  recipe.ingredients.map(mapResult => result.push(mapResult.slice(mapResult.indexOf(' ', mapResult.indexOf(' ') + 1) + 1)));
+  return result; // i will lie if i say i understand the code , need exp
 };
 
 /* ------------------------------------------------------------------------------------------------
