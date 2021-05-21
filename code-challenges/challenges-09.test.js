@@ -8,8 +8,14 @@ using the 'reduce' method.
 
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
+
 const maxInArray = (arr) => {
   // Solution code here...
+  let max = arr.reduce((a, b) => {
+    (b > a) ? a = b : a;
+    return a; // is this?
+  }, 0);
+  return max;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -19,7 +25,8 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -40,6 +47,9 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
+  if (Object.values(obj).includes(value)) { // obj
+    return true;
+  } return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,6 +73,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
+  let a = [];
+  Object.entries(obj).forEach(i => {
+    a.push(i.join(': '));
+  });
+  return a;
 };
 
 
@@ -70,7 +85,8 @@ const updateNumbers = (obj) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
+Write a function named getHouses that returns a new array containing the
+ names of all of the houses in the data set.
 ------------------------------------------------------------------------------------------------ */
 
 const characters = [
@@ -119,15 +135,20 @@ const characters = [
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  arr.forEach(i => {
+    houses.push(i.house);
+  });
   return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named hasChildrenValues that uses Object.values to determine if any given character in the data set has children.
+Write a function named hasChildrenValues that uses Object.values to determine
+ if any given character in the data set has children.
 
-This function should take in an array of data and a character name and return a Boolean.
+This function should take in an array of data and a character name and
+ return a Boolean.
 
 For example:
 hasChildrenValues(characters, 'Cersei') will return true
@@ -135,10 +156,18 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  let flag = false;
 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === character) {
+      let arrayLengthTest = Object.values(arr[i]); // I didn't understand the code well
+      if (arrayLengthTest.length > 3) {
+        flag = true;
+      }
+      return flag;
+    }
+  }
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
